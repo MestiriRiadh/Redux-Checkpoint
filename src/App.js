@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import ListTask from "./Componment/ListTask";
+import { Container, Flex } from "@chakra-ui/react";
+import Addtask from "./Componment/Addtask";
+import Filter from "./Componment/Filter";
+import { useState } from "react";
 function App() {
+  const [statue, setStatue] = useState("all");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Flex direction="column" justify="center" h="100vh">
+        <Addtask />
+        <Filter setStatue={setStatue} />
+        <ListTask statue={statue} />
+      </Flex>
+    </Container>
   );
 }
 
